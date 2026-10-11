@@ -2,23 +2,20 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private void OnDisplayClicked(object sender, EventArgs e)
         {
-            count++;
+            lblOutput.Text = txtInput.Text;
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void OnResetClicked(object sender, EventArgs e)
+        {
+            txtInput.Text = string.Empty;
+            lblOutput.Text = string.Empty;
         }
     }
 }
